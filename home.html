@@ -4,12 +4,96 @@
 <head>
      <title>sample website</title>
      <link rel="stylesheet" href="styles.css">
+     <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .open-button {
+            background-color: #0090CB;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 100px;
+        }
+
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: #0090CB;
+        }
+
+            .form-container textarea {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                border: none;
+                background: #f1f1f1;
+                resize: none;
+                min-height: 200px;
+            }
+
+                .form-container textarea:focus {
+                    background-color: #ddd;
+                    outline: none;
+                }
+
+            .form-container .btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom: 10px;
+                opacity: 0.8;
+            }
+
+            .form-container .cancel {
+                background-color: red;
+                cursor: pointer;
+                color:white;
+            }
+
+            .form-container .btn:hover, .open-button:hover {
+                opacity: 1;
+            }
+    </style>
+     <script type="text/javascript">
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
 </head>
 <body>
     <div class="main">
         <div class="navbar">
             <div class="icon">
                  <h2 class="logo">GET SNAPPY</h2>
+
             </div>
 
             <div class="menu">
@@ -17,10 +101,9 @@
                 <li><a href="slideshow.html">Home</a></li>
                 <li><a href="services.html">services</a></li>
                 <li><a href="contact.html">contact</a></li>
-                <li><a href="#">about</a></li>
+                <li><a href="aboutus.html">about</a></li>
                 <li><a href="login.html"><b>Login</b></a></li>
                 <li><a href="signup.html"><b>SignUp</b></a></li>
-                <li>a href="subscription.html"><b>Subscribe</b></a></li>
                 </ul>
              </div>
         </div>
@@ -32,5 +115,22 @@
             <button class="cn"><a href="joinus.html">JOIN US</a>
             </div>
           </div>
+          <button class="open-button" onclick="openForm()">Chat</button>
+    <div class="chat-popup" id="myForm">
+        <div class="form-container">
+            <div>
+                <div style="float:left"><h1>Chat</h1></div>
+                <div style="float:right;" class="cancel" onclick="closeForm()">
+                    X
+                </div>
+            </div>
+            <br /><br /><br /><br /><br />
+            <div>
+                <label for="msg"><b>Message</b></label>
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+                <button type="submit" class="btn">Send</button>
+            </div>
+        </div>
+    </div>
         </body>
 </html>
